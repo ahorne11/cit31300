@@ -26,15 +26,19 @@ $myName = $myArray[0];
 echo("<h1>$myName</h1>");
 
 //loop through array, create list items
-echo("<ul class='list'>");
-for($i=0; $i<=4; $i++){
-    if($myArray[$i] == $myName){
-        continue;
-    } else {
-        echo("<li>$myArray[$i]</li>");
+function arrayLoop($array, $name)
+{
+    echo("<ul class='list'>");
+    for ($i = 0; $i <= 4; $i++) {
+        if ($array[$i] == $name) {
+            continue;
+        } else {
+            echo("<li>$array[$i]</li>");
+        }
     }
+    echo("</ul>");
 }
-echo("</ul>");
+arrayLoop($myArray, $myName);
 
 include_once('includes/footer.php');
 ?>
