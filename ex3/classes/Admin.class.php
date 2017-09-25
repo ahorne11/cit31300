@@ -1,6 +1,6 @@
 <?php
 
-class Admin extends User {
+class admin extends User {
 
     public function __construct($user_level, $user_id) {
 

@@ -3,6 +3,7 @@ ini_set('display_errors',1);
 error_reporting(E_ALL);
 function loadClasses($class) {
     include_once('classes/'.strtolower($class).'.class.php');
+    //include_once('/home/aahorne/htdocs/ex3/classes/'.strtolower($class).'.class.php');
 }
 spl_autoload_register('loadClasses');
 ?>

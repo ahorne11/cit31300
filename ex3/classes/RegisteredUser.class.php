@@ -1,6 +1,6 @@
 <?php
 
-class RegisteredUser extends User {
+class registereduser extends User {
 
     public function __construct($user_level, $user_id) {
 
