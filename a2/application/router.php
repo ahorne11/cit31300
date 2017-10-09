@@ -1,15 +1,4 @@
 <?php
-/*
-require_once 'application/load.class.php';
-require_once 'application/model.class.php';
-require_once 'application/controller.class.php';
-
-require_once 'application/load.class.php';
-    include_once('models/'.strtolower($class).'.class.php');
-    include_once('controllers/'.strtolower($class).'.class.php');
-
-*/
-
 
 function loadClasses($class) {
 
