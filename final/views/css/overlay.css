@@ -1,3 +1,6 @@
 .navbar-inverse .navbar-inner{
     background-image: linear-gradient(to bottom, #a20788, #000) !important
 }
+input.inputHeight{
+    height: 30px;
+}

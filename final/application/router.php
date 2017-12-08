@@ -23,7 +23,7 @@ spl_autoload_register('autoloader');
 require_once('libraries/password.php');
 
 //grab the path info and break it apart into separate variables
-error_reporting(0);
+//error_reporting(0);
 
 $paths = explode('/', $_SERVER['PATH_INFO']);
 

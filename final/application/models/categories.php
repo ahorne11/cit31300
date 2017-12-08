@@ -1,6 +1,21 @@
 <?php
 class Categories extends Model{
 
+    function getCategory($cID){
+
+
+        $sql = 'SELECT name, categoryID
+        FROM categories
+		WHERE categoryID = ?
+		';
+        $results = $this->db->getrow($sql, array($cID));
+
+        $category = $results;
+
+        return $category;
+
+    }
+
     function getCategories(){
 
         $sql = 'SELECT name, categoryID FROM categories';
@@ -19,10 +34,10 @@ class Categories extends Model{
     public function updateCategories($data){
 
         $name = $data['name'];
-        $categoryID = $data['categoryID'];
+        //$categoryID = $data['cID'];
 
-        //$sql =  'UPDATE posts SET title='.$title.', date='.$date.', categoryID='.$categoryID.', content='.$content.' WHERE  pID ='.$pID ;
-        $sql =  "UPDATE categories SET name='".$name."' WHERE  categoryID =" . $categoryID ;
+        $sql =  "UPDATE categories SET name ='".$name."' WHERE categoryID =?";
+        //$sql='INSERT INTO categories (name, categoryID) VALUES (?,?)';
 
         // perform query
         $this->db->execute($sql,$data);
@@ -31,6 +46,17 @@ class Categories extends Model{
         return $message;
 
     }
+
+    public function addCategory($data){
+
+
+        $sql='INSERT INTO categories (name) VALUES (?)';
+        $this->db->execute($sql,$data);
+        $message = 'Category added.';
+        return $message;
+
+    }
+
 	
 	
 }
