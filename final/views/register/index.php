@@ -19,15 +19,23 @@
 
             <div class="row">
                 <div class="span8">
-                    <form action="<?php echo BASE_URL?>register/<?php echo $task?>" method="post" onsubmit="editor.post()">
+                    <form onsubmit="return validateRegistration();" action="<?php echo BASE_URL?>register/<?php echo $task?>" method="post" onsubmit="editor.post()">
+                        <p id="firstName" class="invalid" >First Name is a required field</p>
                         <label>First Name</label>
-                        <input type="text" class="span6 inputHeight" name="post_first_name" value="">
+                        <input id="inputFirstName" type="text" class="span6 inputHeight" name="post_first_name" value="">
+                        <p id="lastName" class="invalid" >Last Name is a required field</p>
                         <label>Last Name</label>
-                        <input type="text" class="span6 inputHeight"  name="post_last_name" value="">
+                        <input id="inputLastName" type="text" class="span6 inputHeight"  name="post_last_name" value="">
+                        <p id="email" class="invalid" >Email is a required field</p>
                         <label>Email</label>
-                        <input type="text" class="span6 inputHeight" name="post_email" value="">
+                        <input id="inputEmail" type="text" class="span6 inputHeight" name="post_email" value="">
+                        <p id="password" class="invalid" >Password is a required field</p>
+                        <p id="passwordMatch" class="invalid">Passwords do not match</p>
                         <label>Password</label>
-                        <input type="password" class="span6 inputHeight"  name="post_password" value="">
+                        <input id="inputPassword" type="password" class="span6 inputHeight"  name="post_password" value="">
+                        <p id="confirmPassword" class="invalid" >Confirm password is a required field</p>
+                        <label>Confirm Password</label>
+                        <input id="inputConfirmPassword" type="password" class="span6 inputHeight"  name="post_password" value="">
                         <button id="submit" type="submit" class="btn btn-primary" >Submit</button>
                     </form>
                 </div>

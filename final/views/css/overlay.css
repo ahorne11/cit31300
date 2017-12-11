@@ -1,6 +1,23 @@
 .navbar-inverse .navbar-inner{
-    background-image: linear-gradient(to bottom, #a20788, #000) !important
+    /*background-image: linear-gradient(to bottom, #a20788, #000) !important*/
 }
 input.inputHeight{
     height: 30px;
+}
+
+.invalid {
+    color: red !important;
+}
+
+#firstName,
+#lastName,
+#email,
+#password,
+#confirmPassword,
+#passwordMatch,
+#title,
+#date,
+#category,
+#content {
+    display: none;
 }

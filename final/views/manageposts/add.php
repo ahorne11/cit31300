@@ -25,14 +25,17 @@ if( is_array($categories)) {?>
 
   <div class="row">
       <div class="span8">
-        <form action="<?php echo BASE_URL?>manageposts/<?php echo $task?>" method="post" onsubmit="editor.post()">
+        <form onsubmit="return validatePost();" action="<?php echo BASE_URL?>manageposts/<?php echo $task?>" method="post" onsubmit="editor.post()">
+          <p id="title" class="invalid">Title is a required field</p>
           <label>Title</label>
-          <input type="text" class="span6 inputHeight" name="post_title" value="">
+          <input id="inputTitle" type="text" class="span6 inputHeight" name="post_title" value="">
+            <p id="date" class="invalid">Date is a required field</p>
             <label>Date</label>
-            <input class="inputHeight" type="date" id="date" name="post_date" value="">
-            <label>Category</label>
-                <select class="input-sm" name="post_categoryID" id="category">
-                    <option>-- Select Category --</option>
+            <input id="inputDate" class="inputHeight" type="date" id="date" name="post_date" value="">
+            <p id="category" class="invalid">Category is a required field</p>
+            <label>Select Category</label>
+            <select id="inputCategory" class="input-sm" name="post_categoryID" id="category">
+                <option></option>
                     <?php foreach($categories as $c){?>
 
                     <option value="<?php echo $c['categoryID'] ?>"><?php echo $c['name'] ?></option>
@@ -40,8 +43,9 @@ if( is_array($categories)) {?>
                     <?php }?>
                     <!-- populate selection from db -->
                 </select>
-     			<label>Content</label>
-          <textarea id="tinyeditor" name="post_content" style="width:556px;height: 200px"></textarea>
+            <p id="content" class="invalid">Content is a required field</p>
+            <label>Content</label>
+          <textarea id="inputContent" id="tinyeditor" name="post_content" style="width:556px;height: 200px"></textarea>
     			<br/>
             <?php
             //$url = $_SERVER['REQUEST_URI'];

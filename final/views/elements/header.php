@@ -10,6 +10,8 @@
 
     <!-- Le styles -->
     <link href="<?php echo BASE_URL?>views/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL?>views/css/bootswatch.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL?>views/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="<?php echo BASE_URL?>views/css/overlay.css" rel="stylesheet">
 
     <style>
@@ -17,7 +19,7 @@
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
-    <link href="<?php echo BASE_URL?>views/css/bootstrap-responsive.css" rel="stylesheet">
+
 
 
       <?php
