@@ -16,8 +16,8 @@ input.inputHeight{
 #confirmPassword,
 #passwordMatch,
 #title,
-#date,
-#category,
+#dateValid,
+#categoryValid,
 #content {
     display: none;
 }

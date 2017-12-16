@@ -80,10 +80,12 @@
 
                                  <li>
                                      <a href="<?php echo BASE_URL?>manageposts/">Manage Blog Posts</a>
+                                     <a href="<?php echo BASE_URL?>categories/">Manage Categories</a>
                                  </li>
 
                              <?php } ?>
                             <li>
+                                <a href="<?php echo BASE_URL?>members/users/<?php echo $u->getID(); ?>">My Profile</a>
                                 <a href="<?php echo BASE_URL?>login/logout">Log Out</a>
                             </li>
                          </ul>

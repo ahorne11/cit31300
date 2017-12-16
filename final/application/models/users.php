@@ -1,17 +1,19 @@
 <?php
 
-class Users extends Model {
+class Users extends Model
+{
 
     public $uID;
     public $first_name;
     public $last_name;
     public $email;
-    protected  $user_type;
+    protected $user_type;
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
 
-        if(isset($_SESSION['uID'])){
+        if (isset($_SESSION['uID'])) {
 
 
             $userInfo = $this->getUserFromID($_SESSION['uID']);
@@ -25,21 +27,45 @@ class Users extends Model {
 
     }
 
-    public function getUserName(){
+    public function getUserName()
+    {
 
-        return $this->first_name. " " . $this->last_name;
+        return $this->first_name . " " . $this->last_name;
 
     }
 
-    public function getEmail(){
+    public function getID()
+    {
+
+        return $this->uID;
+
+    }
+
+    public function getEmail()
+    {
 
         return $this->email;
 
     }
 
-    public function isRegistered(){
+    public function getFirstName()
+    {
 
-        if(isset($this->user_type)){
+        return $this->first_name;
+
+    }
+
+    public function getLastName()
+    {
+
+        return $this->last_name;
+
+    }
+
+    public function isRegistered()
+    {
+
+        if (isset($this->user_type)) {
             return true;
         } else {
             return false;
@@ -47,9 +73,10 @@ class Users extends Model {
 
     }
 
-    public function isAdmin(){
+    public function isAdmin()
+    {
 
-        if($this->user_type == '1'){
+        if ($this->user_type == '1') {
             return true;
         } else {
             return false;
@@ -58,10 +85,11 @@ class Users extends Model {
     }
 
 
-    public function getUser($uID){
+    public function getUser($uID)
+    {
 
 
-        $sql =  'SELECT uID, first_name, last_name, email, password FROM users 
+        $sql = 'SELECT uID, first_name, last_name, email, password FROM users 
                   WHERE uID = ?';
 
         // perform query
@@ -73,13 +101,13 @@ class Users extends Model {
 
     }
 
-    public function getAllUsers($limit = 0){
+    public function getAllUsers($limit = 0)
+    {
 
 
+        if ($limit > 0) {
 
-        if($limit > 0){
-
-            $numusers = ' LIMIT '.$limit;
+            $numusers = ' LIMIT ' . $limit;
         }
 
         //$sql =  'SELECT pID, title, content, date, uID, categoryID FROM posts'.$numusers;
@@ -88,7 +116,7 @@ class Users extends Model {
         // perform query
         $results = $this->db->execute($sql);
 
-        while ($row=$results->fetchrow()) {
+        while ($row = $results->fetchrow()) {
             $users[] = $row;
         }
 
@@ -96,17 +124,19 @@ class Users extends Model {
 
     }
 
-    public function registerUser($data){
+    public function registerUser($data)
+    {
 
 
-        $sql='INSERT INTO users (first_name, last_name, email, password) VALUES (?,?,?,?)';
-        $this->db->execute($sql,$data);
+        $sql = 'INSERT INTO users (first_name, last_name, email, password) VALUES (?,?,?,?)';
+        $this->db->execute($sql, $data);
         $message = 'User added.';
         return $message;
 
     }
 
-    public function checkUser($email, $password){
+    public function checkUser($email, $password)
+    {
 
         $sql = "SELECT email, password FROM users WHERE email = ?";
 
@@ -116,7 +146,7 @@ class Users extends Model {
 
         $password_db = $user[1];
 
-        if(password_verify($password, $password_db)){
+        if (password_verify($password, $password_db)) {
             return true;
         } else {
             return false;
@@ -124,7 +154,9 @@ class Users extends Model {
 
 
     }
-    public function getUserFromEmail($email){
+
+    public function getUserFromEmail($email)
+    {
 
         $sql = "SELECT * FROM users WHERE email = ?";
 
@@ -136,7 +168,8 @@ class Users extends Model {
 
     }
 
-    public function getUserFromID($uID){
+    public function getUserFromID($uID)
+    {
 
         $sql = "SELECT * FROM users WHERE uID = ?";
 
@@ -145,6 +178,29 @@ class Users extends Model {
         $user = $results;
 
         return $user;
+    }
+
+    public function updateUser($data)
+    {
+
+        $firstName = $data['firstName'];
+        $lastName = $data['lastName'];
+        $email = $data['email'];
+        $password = $data['password'];
+
+        if($password == ""){
+            $sql = "UPDATE users SET first_name='" . $firstName . "', last_name='" . $lastName . "', email='" . $email . "' WHERE  uID =?";
+        } else {
+            $sql = "UPDATE users SET first_name='" . $firstName . "', last_name='" . $lastName . "', email='" . $email . "', password='" . $password . "' WHERE  uID =?";
+        }
+
+        // perform query
+        $this->db->execute($sql, $data);
+
+        $message = 'Profile updated.';
+        return $message;
+
+
     }
 
 }

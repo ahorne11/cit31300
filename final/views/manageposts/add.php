@@ -29,10 +29,10 @@ if( is_array($categories)) {?>
           <p id="title" class="invalid">Title is a required field</p>
           <label>Title</label>
           <input id="inputTitle" type="text" class="span6 inputHeight" name="post_title" value="">
-            <p id="date" class="invalid">Date is a required field</p>
+            <p id="dateValid" class="invalid">Date is a required field</p>
             <label>Date</label>
             <input id="inputDate" class="inputHeight" type="date" id="date" name="post_date" value="">
-            <p id="category" class="invalid">Category is a required field</p>
+            <p id="categoryValid" class="invalid">Category is a required field</p>
             <label>Select Category</label>
             <select id="inputCategory" class="input-sm" name="post_categoryID" id="category">
                 <option></option>

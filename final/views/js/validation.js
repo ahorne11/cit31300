@@ -112,10 +112,10 @@ function validateTitle() {
 function validateDate() {
     var date = document.getElementById("inputDate").value;
     if (date == "") {
-        document.getElementById("date").style.display = "block";
+        document.getElementById("dateValid").style.display = "block";
         return false;
     } else {
-        document.getElementById("date").style.display = "none";
+        document.getElementById("dateValid").style.display = "none";
         return true;
     }
 }
@@ -123,10 +123,10 @@ function validateDate() {
 function validateCategory() {
     var category = document.getElementById("inputCategory").value;
     if (category == "") {
-        document.getElementById("category").style.display = "block";
+        document.getElementById("categoryValid").style.display = "block";
         return false;
     } else {
-        document.getElementById("category").style.display = "none";
+        document.getElementById("categoryValid").style.display = "none";
         return true;
     }
 }

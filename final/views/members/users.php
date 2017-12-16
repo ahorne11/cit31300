@@ -16,6 +16,8 @@ if( is_array($user) ) {
         <p><?php echo  $first_name . " " . $last_name; ?></p>
         <p><?php echo  $email ?></p>
 
+        <a class="btn btn-primary" href="<?php echo BASE_URL?>members/edit/<?php echo $u->getID(); ?>">Edit Profile</a>
+
     </div>
 </div>
 
